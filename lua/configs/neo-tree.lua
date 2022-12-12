@@ -48,6 +48,11 @@ require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
     hijack_netrw_behavior = "open_current",
     use_libuv_file_watcher = true,
     window = { mappings = { h = "toggle_hidden" } },
+    filtered_items = {
+      visible = true,
+      hide_dotfiles = false,
+      hide_gitignored = false,
+    }
   },
   event_handlers = {
     { event = "neo_tree_buffer_enter", handler = function(_) vim.opt_local.signcolumn = "auto" end },
