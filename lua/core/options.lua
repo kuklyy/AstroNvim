@@ -36,6 +36,7 @@ astronvim.vim_opts(astronvim.user_plugin_opts("options", {
     updatetime = 300, -- Length of time to wait before triggering the plugin
     wrap = false, -- Disable wrapping of lines longer than the width of window
     writebackup = false, -- Disable making a backup before overwriting a file
+    colorcolumn = "120",
   },
   g = {
     highlighturl_enabled = true, -- highlight URLs by default

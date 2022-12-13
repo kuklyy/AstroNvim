@@ -166,8 +166,13 @@ local config = {
       },
     },
     -- add to the global LSP on_attach function
-    -- on_attach = function(client, bufnr)
-    -- end,
+    on_attach = function(client, bufnr)
+        local bufopts = {noremap=true,silent=true,buffer=bufnr}
+        vim.keymap.set('n','gD', vim.lsp.buf.declaration,bufopts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n','gi', vim.lsp.buf.implementation,bufopts)
+        vim.keymap.set('n','gr',vim.lsp.buf.implementation.bufopts)
+    end,
 
     -- override the mason server-registration function
     -- server_registration = function(server, opts)

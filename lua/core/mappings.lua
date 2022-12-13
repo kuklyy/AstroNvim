@@ -207,7 +207,6 @@ if is_available "toggleterm.nvim" then
   maps.t["<F7>"] = maps.n["<F7>"]
   maps.n["<C-'>"] = maps.n["<F7>"]
   maps.t["<C-'>"] = maps.n["<F7>"]
-  maps.t["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }
 end
 
 if is_available "nvim-dap" then

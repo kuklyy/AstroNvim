@@ -34,7 +34,7 @@ require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
     },
   },
   window = {
-    width = 30,
+    width = 50,
     mappings = {
       ["<space>"] = false, -- disable space until we figure out which-key disabling
       o = "open",
