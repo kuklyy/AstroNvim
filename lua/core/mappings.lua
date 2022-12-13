@@ -14,6 +14,8 @@ maps.n["gx"] = { function() astronvim.system_open() end, desc = "Open the file u
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 maps.n["<C-q>"] = { "<cmd>q!<cr>", desc = "Force quit" }
 maps.n["Q"] = "<Nop>"
+maps.n["<leader>|"] = { "<cmd>belowright vsplit<cr>", desc = "Split buffer vertically" }
+maps.n["<leader>-"] = { "<cmd>belowright split<cr>", desc = "Split buffer horizontally" }
 
 -- Packer
 maps.n["<leader>pc"] = { "<cmd>PackerCompile<cr>", desc = "Packer Compile" }
@@ -88,7 +90,7 @@ if is_available "neovim-session-manager" then
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
   maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
   maps.n["<leader>S."] =
-    { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
+  { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 
 -- Package Manager
@@ -153,7 +155,7 @@ if is_available "telescope.nvim" then
   maps.n["<leader>fm"] = { function() require("telescope.builtin").marks() end, desc = "Search marks" }
   maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Search history" }
   maps.n["<leader>fc"] =
-    { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
+  { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
   maps.n["<leader>sb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>sh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
   maps.n["<leader>sm"] = { function() require("telescope.builtin").man_pages() end, desc = "Search man" }
@@ -162,7 +164,7 @@ if is_available "telescope.nvim" then
   maps.n["<leader>sc"] = { function() require("telescope.builtin").commands() end, desc = "Search commands" }
   if astronvim.is_available "nvim-notify" then
     maps.n["<leader>sn"] =
-      { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
+    { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
   end
   maps.n["<leader>ls"] = {
     function()
@@ -192,11 +194,12 @@ if is_available "toggleterm.nvim" then
     maps.n["<leader>tu"] = { function() toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" }
   end
   if vim.fn.executable "btm" == 1 then
-    maps.n["<leader>tt"] = { function() toggle_term_cmd "btm" end, desc = "ToggleTerm btm" }
+    maps.n["<leader>th"] = { function() toggle_term_cmd "btm" end, desc = "ToggleTerm btm" }
   end
   if vim.fn.executable "python" == 1 then
     maps.n["<leader>tp"] = { function() toggle_term_cmd "python" end, desc = "ToggleTerm python" }
   end
+  maps.n["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<cr>", desc = "ToggleTerm tab" }
   maps.n["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" }
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
@@ -204,6 +207,7 @@ if is_available "toggleterm.nvim" then
   maps.t["<F7>"] = maps.n["<F7>"]
   maps.n["<C-'>"] = maps.n["<F7>"]
   maps.t["<C-'>"] = maps.n["<F7>"]
+  maps.t["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }
 end
 
 if is_available "nvim-dap" then
