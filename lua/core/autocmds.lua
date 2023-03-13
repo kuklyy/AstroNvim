@@ -84,13 +84,13 @@ if is_available "alpha-nvim" then
       })
     end,
   })
-  cmd("VimEnter", {
-    desc = "Start Alpha when vim is opened with no arguments",
-    group = group_name,
-    callback = function()
-      vim.cmd('SessionManager! load_current_dir_session')
-    end,
-  })
+  -- cmd("VimEnter", {
+  --   desc = "Start Alpha when vim is opened with no arguments",
+  --   group = group_name,
+  --   callback = function()
+  --     -- vim.cmd('SessionManager! load_current_dir_session')
+  --   end,
+  -- })
 end
 
 if is_available "neo-tree.nvim" then
